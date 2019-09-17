@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                FacultyModel Table
+            </div>
+            <div class="card-body">
+                <table class="table table-md">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th>Name</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Faculties</th>
+                        <th>Groups</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Search by Id"
+                                   [(ngModel)]="filterResult.id">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Search by Name"
+                                   [(ngModel)]="filterResult.name">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Search by LastName"
+                                   [(ngModel)]="filterResult.lastName">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Search by Email"
+                                   [(ngModel)]="filterResult.email">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Search by Phone"
+                                   [(ngModel)]="filterResult.phone">
+                        </td>
+                        <td>
+                            <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="filterResult.faculty">
+                                <option selected></option>
+                                <option *ngFor="let faculty of faculties" value="{{faculty.name}}">{{faculty.name}}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="custom-select" id="inputGroupSelect02" [(ngModel)]="filterResult.group">
+                                <option selected></option>
+                                <option *ngFor="let group of groups" value="{{group.group}}">{{group.group}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <ng-container *ngIf="dashboard && dashboard.length">
+                        <tr *ngFor="let item of dashboard | dashboardFilter:filterResult.id: filterResult.name:
+                              filterResult.lastName: filterResult.email: filterResult.phone: filterResult.faculty: filterResult.group">
+                            <th scope="row">{{item.id}}</th>
+                            <td>{{item.name}}</td>
+                            <td>{{item.lastName}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.phone}}</td>
+                            <td>{{item.faculty}}</td>
+                            <td>{{item.group}}</td>
+                        </tr>
+                    </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
