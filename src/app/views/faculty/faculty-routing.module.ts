@@ -1,31 +1,35 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+import {FacultiesComponent} from './faculties.component';
 import {FacultyComponent} from './faculty.component';
-import {CreateFacultyComponent} from './create-faculty.component';
-
 
 const routes: Routes = [
     {
         path: '',
         data: {
-            title: ''
+            title: 'Faculties'
         },
         children: [
             {
+                data: {
+                    title: ''
+                },
                 path: '',
-                redirectTo: 'faculty'
+                component: FacultiesComponent,
             },
             {
-                path: 'faculty',
+                data: {
+                    title: 'Create'
+                },
+                path: 'create',
                 component: FacultyComponent,
             },
             {
-                path: 'createFac',
-                component: CreateFacultyComponent,
-            },
-            {
-                path: 'editFaculties',
-                component: CreateFacultyComponent,
+                data: {
+                    title: 'Edit'
+                },
+                path: 'edit',
+                component: FacultyComponent,
             },
         ]
     }

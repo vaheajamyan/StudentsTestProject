@@ -7,7 +7,7 @@ import {Students} from '../views/students/student-model';
     providedIn: 'root'
 })
 export class StudentsService {
-    private studentsUrl = 'api/Students';  // URL to web api
+    private studentsUrl = 'api/students';  // URL to web api
     public updatedStudents: Students;
 
     httpOptions = {

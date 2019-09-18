@@ -27,7 +27,7 @@ export class GroupsComponent implements OnInit {
 
   setGroups(group: Groups): void {
     this.groupService.getUpdatedData(group);
-    this.router.navigate(['/editGroups']);
+    this.router.navigate(['/groups/edit']);
   }
 
   onRemove(group: Groups): void {

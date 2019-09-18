@@ -7,23 +7,28 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      title: ''
+      title: 'Groups'
     },
     children: [
       {
+        data: {
+          title: ''
+        },
         path: '',
-        redirectTo: 'groups'
-      },
-      {
-        path: 'groups',
         component: GroupsComponent,
       },
       {
-        path: 'createGroup',
+        data: {
+          title: 'Create'
+        },
+        path: 'create',
         component: GroupComponent,
       },
       {
-        path: 'editGroups',
+        data: {
+          title: 'Edit'
+        },
+        path: 'edit',
         component: GroupComponent,
       },
     ]

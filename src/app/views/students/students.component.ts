@@ -27,7 +27,7 @@ export class StudentsComponent implements OnInit {
 
   setStudents(student: Students): void {
     this.studentService.getUpdatedData(student);
-    this.router.navigate(['/editStudents']);
+    this.router.navigate(['/students/edit']);
   }
 
   onRemove(student: Students): void {

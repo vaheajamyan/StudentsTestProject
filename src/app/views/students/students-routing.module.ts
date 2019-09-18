@@ -7,23 +7,28 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      title: ''
+      title: 'Students'
     },
     children: [
       {
+        data: {
+          title: ''
+        },
         path: '',
-        redirectTo: 'students'
-      },
-      {
-        path: 'students',
         component: StudentsComponent,
       },
       {
-        path: 'createStudents',
+        data: {
+          title: 'Create'
+        },
+        path: 'create',
         component: StudentComponent,
       },
       {
-        path: 'editStudents',
+        data: {
+          title: 'Edit'
+        },
+        path: 'edit',
         component: StudentComponent,
       },
     ]

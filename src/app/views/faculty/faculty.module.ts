@@ -4,11 +4,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 
 import {FacultyRoutingModule} from './faculty-routing.module';
+import {FacultiesComponent} from './faculties.component';
 import {FacultyComponent} from './faculty.component';
-import {CreateFacultyComponent} from './create-faculty.component';
 
 @NgModule({
-    declarations: [FacultyComponent, CreateFacultyComponent],
+    declarations: [FacultiesComponent, FacultyComponent],
     imports: [
         FormsModule,
         CommonModule,

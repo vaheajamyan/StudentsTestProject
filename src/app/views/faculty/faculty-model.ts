@@ -1,4 +1,4 @@
-export class Faculty {
-    id?: number;
+export interface Faculty {
+    id: number;
     name: string;
 }
