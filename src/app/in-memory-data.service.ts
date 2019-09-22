@@ -28,6 +28,11 @@ export class InMemoryDataService implements InMemoryDbService {
     return {faculties, groups, students};
   }
 
+  // Overrides the genId method to ensure that always has an id.
+  // If the array is empty,
+  // the method below returns the initial number (1).
+  // if the array is not empty, the method below returns the highest
+  // id + 1.
   genId<T extends Faculty | Students | Groups>(myTable: T[]): number {
     return myTable.length > 0 ? Math.max(...myTable.map(m => m.id)) + 1 : 1;
   }

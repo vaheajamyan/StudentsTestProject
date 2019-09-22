@@ -9,9 +9,17 @@
                     <form  [formGroup]="formGroup" (ngSubmit)="onSubmit()">
                         <label class="font-weight-bold" for="exampleFormControlInput1">Name:</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name" formControlName="name">
+                        <div *ngIf="formGroup.get('name').touched && formGroup.get('name').invalid"
+                             class="alert alert-danger mt-1 p-2">
+                            Name is required
+                        </div>
                         <div [hidden]="mode === 1">
                             <label class="font-weight-bold mt-3" for="exampleFormControlInput2">Group:</label>
                             <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="group" formControlName="group">
+                            <div *ngIf="formGroup.get('group').touched && formGroup.get('group').invalid"
+                                 class="alert alert-danger mt-1 p-2">
+                                Group is required
+                            </div>
                         </div>
                         <button routerLink="/groups" type="button" class="btn btn-danger pull-right mt-2">Cancel
                         </button>

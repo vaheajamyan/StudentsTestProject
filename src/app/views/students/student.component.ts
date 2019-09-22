@@ -39,7 +39,7 @@ export class StudentComponent implements OnInit {
       id: new FormControl(null),
       name: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       phone: new FormControl('', [Validators.required]),
       faculty: new FormControl('', [Validators.required]),
       group: new FormControl('', [Validators.required])
@@ -53,23 +53,25 @@ export class StudentComponent implements OnInit {
     }
   }
 
+  // get all groups to complete the student group field
   getGroups() {
     this.groupService.getGroups().subscribe(data => {
       this.groups = data;
     });
   }
 
+  // get all faculties to complete the student faculty field
   getFaculties() {
     this.facultyService.getFaculty().subscribe(data => {
       this.faculties = data;
     });
   }
 
+  // this function adds or updates students depending on the mode
   onSubmit(): void {
     if (!this.formGroup.valid) {
       return;
     }
-
     switch (this.mode) {
       case Mode.Create:
         this.studentsService.addStudent(this.formGroup.value).subscribe(f => console.log());

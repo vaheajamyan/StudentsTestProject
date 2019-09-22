@@ -10,8 +10,11 @@
                         <label class="font-weight-bold" for="exampleFormControlInput1">Name:</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name"
                                formControlName="name">
-                        <button routerLink="/faculties" type="button" class="btn btn-danger pull-right mt-2">Cancel
-                        </button>
+                        <div *ngIf="formGroup.get('name').touched && formGroup.get('name').invalid"
+                             class="alert alert-danger mt-1 p-2">
+                            Name is required
+                        </div>
+                        <button routerLink="/faculties" type="button" class="btn btn-danger pull-right mt-2">Cancel</button>
                         <button type="submit" class="btn btn-success pull-right mt-2 mr-2">Save</button>
                     </form>
                 </div>

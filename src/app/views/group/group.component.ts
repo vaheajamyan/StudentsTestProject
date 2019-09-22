@@ -37,11 +37,11 @@ export class GroupComponent implements OnInit {
     }
   }
 
+  // this function adds or updates groups depending on the mode
   onSubmit(): void {
     if (!this.formGroup.valid) {
       return;
     }
-
     switch (this.mode) {
       case Mode.Create:
         this.groupService.addGroup(this.formGroup.value).subscribe(f => console.log());
@@ -52,7 +52,5 @@ export class GroupComponent implements OnInit {
             .subscribe(() => this.router.navigate(['/groups']));
         break;
     }
-
   }
-
 }

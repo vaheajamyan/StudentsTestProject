@@ -39,11 +39,11 @@ export class FacultyComponent implements OnInit {
         }
     }
 
+    // this function adds or updates faculties depending on the mode
     onSubmit(): void {
         if (!this.formGroup.valid) {
             return;
         }
-
         switch (this.mode) {
             case Mode.Create:
                 this.facultyService.addFaculty(this.formGroup.value).subscribe(f => console.log());

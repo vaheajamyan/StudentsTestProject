@@ -19,17 +19,20 @@ export class StudentsComponent implements OnInit {
     this.getStudents();
   }
 
+  // get all students from studentService
   getStudents() {
     this.studentService.getStudents().subscribe(data => {
       this.students = data;
     });
   }
 
+  // set updated student data and go to edit page
   setStudents(student: Students): void {
     this.studentService.getUpdatedData(student);
     this.router.navigate(['/students/edit']);
   }
 
+  // call delete function from studentService and filter students Array
   onRemove(student: Students): void {
     this.students = this.students.filter(f => f !== student);
     this.studentService.deleteStudent(student).subscribe(f => console.log());

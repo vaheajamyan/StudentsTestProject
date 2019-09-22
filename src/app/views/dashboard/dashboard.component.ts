@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Students} from '../students/student-model';
 import {Groups} from '../group/group-model';
 import {Faculty} from '../faculty/faculty-model';
 import {StudentsService} from '../../services/students.service';
 import {GroupService} from '../../services/group.service';
 import {FacultyService} from '../../services/faculty.service';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -25,15 +26,14 @@ export class DashboardComponent implements OnInit {
     group: ''
   };
 
-
   constructor(
       private studentSercice: StudentsService,
       private groupService: GroupService,
       private facultyService: FacultyService
   ) {
-    // console.log(this.dashboard)
   }
 
+  // get the data of all students, groups and faculties and show it to the user
   getStudents() {
     this.studentSercice.getStudents().subscribe(data => this.dashboard = data);
   }
@@ -49,11 +49,12 @@ export class DashboardComponent implements OnInit {
       this.faculties = data;
     });
   }
+  // get the data of all students, groups and faculties and show it to the user
+
 
   ngOnInit(): void {
     this.getStudents();
     this.getFaculties();
     this.getGroups();
   }
-
 }
